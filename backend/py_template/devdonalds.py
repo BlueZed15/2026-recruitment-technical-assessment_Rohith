@@ -106,7 +106,8 @@ def parse():
 def parse_handwriting(recipeName: str) -> Union[str | None]:
 	# TODO: implement me	
 	temp_str=re.sub(r"[\s_-]"," ",recipeName)
-	recipeName=re.sub(r"[^\w ]|[\d]","",temp_str)
+	temp_str=re.sub(r"[^\w ]|[\d]","",temp_str)
+	recipeName=re.sub(r" +"," ",temp_str).strip()
 	
 	return recipeName.title() if recipeName else None
 	#return recipeName
